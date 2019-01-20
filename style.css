@@ -1,0 +1,71 @@
+
+* {
+   font-family: monospace;
+   color: white;
+   font-weight: 900;
+   text-align: center;
+   
+
+
+}
+html, body{
+   margin: 0;
+   background-color: #6e6b4b1c
+
+}
+
+.grid {
+   display: grid;
+   grid-template: repeat(12, 1fr) / repeat(8, 1fr);
+   width: 100%;
+   grid-gap: 10px;
+  
+}
+
+.item {
+   
+   
+
+}
+
+.navbar-top{
+   background-color: #8127278c;
+   grid-area: 1 / 1 / span 1 / -1;
+   font-size: 36px;
+
+}
+
+.clock-display {
+   grid-area: 2 / 3 / span 1 / span 4;
+   background-color: #1b2d31cb;
+   font-size: 36px;
+}
+
+.clock-top-left {
+   grid-area: 3 / 3 / span 1 / span 2;
+   background-color: #1f6779cb;
+}
+
+.clock-top-right {
+   grid-area: 3 / 5 / span 1 / span 2;
+   background-color: #1f6779cb;
+   
+}
+
+.clock-bottom-left {
+   grid-area: 4 / 3 / span 1 / span 2;
+   background-color: #1f6779cb;
+}
+
+.clock-bottom-right {
+   grid-area: 4 / 5 / span 1 / span 2;
+   background-color: #1f6779cb;
+
+}
+
+
+
+/* IDK whether this is the correct way to go. I am thinking maybe we would use a single column only for phones.*/
+@media screen and (max-width: 600px) {
+
+}

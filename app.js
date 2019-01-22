@@ -1,10 +1,8 @@
 
- 
 
-let playing = false;
-let paused = false;
-let timeToRun = 20;
+let timeToRun = 200;
 const timerDefaultVal = 20;
+
 
 const display = document.querySelector(".clock-h2");
 const addMinutesBtn = document.querySelector(".li-plus");
@@ -15,48 +13,44 @@ addMinutesBtn.addEventListener('click', (e) => {
    console.log(e.currentTarget);
 });
 
-startBtn.addEventListener('click', (e) => {
+startBtn.addEventListener('click', () => {
    startCount();
 });
 
-stopBtn.addEventListener('click', (e) => {
+stopBtn.addEventListener('click', () => {
    stopAndReset();
-
 
 });
 
+window.onload = displayTimerValue();
+
 function startCount () {
-   paused = false;
-   playing = true;
    interval = setInterval(countDown, 1000);
 }
 
 function countDown () {
    timeToRun --;
    testIfStop(timeToRun);
-   displayTime(timeToRun);
+   displayTimerValue(timeToRun);
 }
 
-function testIfStop(currentCount) {
-   if (currentCount === 0) {
+function testIfStop() {
+   if (timeToRun === 0) {
       clearTimeout(interval) 
-   }  else if (paused) {
-      clearTimeout(interval)
-   }
+   }  
 }
 
 function stopAndReset() {
-   playing = false;
-   paused = false;
    timeToRun = timerDefaultVal;
 
 }
 
-function convertTime () {
-   let msToMinutes = Math.floor(msToSeconds / 60); 
+function convertTime (numberOfSeconds) {
+   let msToMinutes = Math.floor(numberOfSeconds / 60); 
 }
 
-function displayTime () {
-   display.innerHTML = timeToRun;
+function displayTimerValue () {
+   let displayValue = Math.floor(timeToRun / 60);
+   display.innerHTML = displayValue;
 }
 

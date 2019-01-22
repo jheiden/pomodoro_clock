@@ -44,10 +44,6 @@ function stopAndReset() {
    secondsToRun = timerDefaultVal;
 }
 
-function convertTime () {
-  return Math.floor(secondsToRun / 60); 
-  // cant use return => need to convert seconds to secondsToRun % 60
-}
 
 function displayTimerValue () {
    let convertedMinutes = Math.floor(secondsToRun / 60);

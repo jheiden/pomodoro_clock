@@ -1,13 +1,16 @@
 
 
-let timeToRun = 200;
-const timerDefaultVal = 20;
-
+let secondsToRun = 200;
+const timerDefaultVal = 200;
 
 const display = document.querySelector(".clock-h2");
 const addMinutesBtn = document.querySelector(".li-plus");
 const startBtn = document.querySelector(".play-img");
 const stopBtn = document.querySelector(".stop-img");
+
+// Will write separate eventlisteners and then refactor using bubbling / propagation
+
+window.onload = displayTimerValue();
 
 addMinutesBtn.addEventListener('click', (e) => {
    console.log(e.currentTarget);
@@ -19,38 +22,37 @@ startBtn.addEventListener('click', () => {
 
 stopBtn.addEventListener('click', () => {
    stopAndReset();
-
 });
-
-window.onload = displayTimerValue();
 
 function startCount () {
    interval = setInterval(countDown, 1000);
 }
 
 function countDown () {
-   timeToRun --;
-   testIfStop(timeToRun);
-   displayTimerValue(timeToRun);
+   secondsToRun --;
+   testIfStop(secondsToRun);
+   displayTimerValue(secondsToRun);
 }
 
 function testIfStop() {
-   if (timeToRun === 0) {
+   if (secondsToRun === 0) {
       clearTimeout(interval) 
    }  
 }
 
 function stopAndReset() {
-   timeToRun = timerDefaultVal;
-
+   secondsToRun = timerDefaultVal;
 }
 
-function convertTime (numberOfSeconds) {
-   let msToMinutes = Math.floor(numberOfSeconds / 60); 
+function convertTime () {
+  return Math.floor(secondsToRun / 60); 
+  // cant use return => need to convert seconds to secondsToRun % 60
 }
 
 function displayTimerValue () {
-   let displayValue = Math.floor(timeToRun / 60);
-   display.innerHTML = displayValue;
+   let convertedMinutes = Math.floor(secondsToRun / 60);
+   let convertedSeconds = secondsToRun % 60;
+   display.textContent = `${convertedMinutes}:${convertedSeconds}`
+    
 }
 

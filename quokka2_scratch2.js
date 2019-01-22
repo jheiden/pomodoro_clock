@@ -1,7 +1,6 @@
 
 // ** QUOKKA SCRATCHPAD FILE 
 
-
 let timeToRun = 20;
 let playing = false;
 let paused = false;

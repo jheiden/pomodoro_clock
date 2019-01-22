@@ -34,6 +34,19 @@ li {
    display: inline;
 }
 
+.animation-area {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 600px;
+}
+
+.box {
+	width: 60px;
+	height: 60px;
+	background-color: black;
+}
+
 .grid {
    display: grid;
    grid-template: repeat(12, 1fr) / repeat(8, 1fr);

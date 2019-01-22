@@ -1,29 +1,54 @@
 
-// ** QUOKKA SCRATCHPAD FILE 
 
+let secondsToRun = 200;
+const timerDefaultVal = 200;
 
-let timeToStop = 20;
-let startCount = setInterval(startCountDown, 1000);
-let display = document.querySelector(".clock-h2")
+const display = document.querySelector(".clock-h2");
+const addMinutesBtn = document.querySelector(".li-plus");
+const startBtn = document.querySelector(".play-img");
+const stopBtn = document.querySelector(".stop-img");
 
+// Will write separate eventlisteners and then refactor using bubbling / propagation
 
-function startCountDown () {
-   timeToStop --;
-   evaluateCounter(timeToStop);
-   displayTime(timeToStop);
+window.onload = displayTimerValue();
+
+addMinutesBtn.addEventListener('click', (e) => {
+   console.log(e.currentTarget);
+});
+
+startBtn.addEventListener('click', () => {
+   startCount();
+});
+
+stopBtn.addEventListener('click', () => {
+   stopAndReset();
+});
+
+function startCount () {
+   interval = setInterval(countDown, 1000);
 }
 
-function evaluateCounter(currentCount) {
-   if (currentCount === 0) {
-      clearTimeout(startCount) 
-   }
+function countDown () {
+   secondsToRun --;
+   testIfStop(secondsToRun);
+   displayTimerValue(secondsToRun);
 }
 
-function convertTime () {
-   let msToMinutes = Math.floor(msToSeconds / 60); 
+function testIfStop() {
+   if (secondsToRun === 0) {
+      clearTimeout(interval) 
+   }  
 }
 
-function displayTime () {
-   display.innerHTML = timeToStop;
+function stopAndReset() {
+   secondsToRun = timerDefaultVal;
+}
+
+
+function displayTimerValue () {
+   let convertedMinutes = Math.floor(secondsToRun / 60);
+   let convertedSeconds = secondsToRun % 60;
+   display.textContent = `${convertedMinutes}:${convertedSeconds}`
+    
 }
 

@@ -3,12 +3,12 @@
 let secondsToRun = 200;
 const timerDefaultVal = 200;
 
+// **TODO** refactor and use bubbling and listen to the containing parent element.
 const display = document.querySelector(".clock-h2");
 const addMinutesBtn = document.querySelector(".li-plus");
 const startBtn = document.querySelector(".play-img");
 const stopBtn = document.querySelector(".stop-img");
 
-// Will write separate eventlisteners and then refactor using bubbling / propagation
 
 window.onload = displayTimerValue();
 

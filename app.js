@@ -1,22 +1,55 @@
 
-// ** QUOKKA SCRATCHPAD FILE 
+ 
+
+let playing = false;
+let paused = false;
+let timeToRun = 20;
+const timerDefaultVal = 20;
+
+const display = document.querySelector(".clock-h2");
+const addMinutesBtn = document.querySelector(".li-plus");
+const startBtn = document.querySelector(".play-img");
+const stopBtn = document.querySelector(".stop-img");
+
+addMinutesBtn.addEventListener('click', (e) => {
+   console.log(e.currentTarget);
+});
+
+startBtn.addEventListener('click', (e) => {
+   startCount();
+});
+
+stopBtn.addEventListener('click', (e) => {
+   stopAndReset();
 
 
-let timeToStop = 20;
-let startCount = setInterval(startCountDown, 1000);
-let display = document.querySelector(".clock-h2")
+});
 
-
-function startCountDown () {
-   timeToStop --;
-   evaluateCounter(timeToStop);
-   displayTime(timeToStop);
+function startCount () {
+   paused = false;
+   playing = true;
+   interval = setInterval(countDown, 1000);
 }
 
-function evaluateCounter(currentCount) {
+function countDown () {
+   timeToRun --;
+   testIfStop(timeToRun);
+   displayTime(timeToRun);
+}
+
+function testIfStop(currentCount) {
    if (currentCount === 0) {
-      clearTimeout(startCount) 
+      clearTimeout(interval) 
+   }  else if (paused) {
+      clearTimeout(interval)
    }
+}
+
+function stopAndReset() {
+   playing = false;
+   paused = false;
+   timeToRun = timerDefaultVal;
+
 }
 
 function convertTime () {
@@ -24,6 +57,6 @@ function convertTime () {
 }
 
 function displayTime () {
-   display.innerHTML = timeToStop;
+   display.innerHTML = timeToRun;
 }
 

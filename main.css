@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i');
+
+* {
+	font-family: Roboto, monospace;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary: #2D3B45;
+	--lightgrey: #FBFCFC;
+	--grey: #E0E0E3;
+}
+
+html, body{
+	margin: 0;
+}
+
+body {
+ background-image: url('images/pomodoro-bg.svg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+}
+
+.animation-wrapper {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 1200px;
+}
+
+.animation-area {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: row;
+	height: 60px;
+	width: 1200px;
+
+}
+
+.box {
+	margin-top: -60px;
+	background-color: var(--primary);
+}
+
+.container {
+	width: 650px;
+	background-color: white;
+	margin: 0 auto;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	z-index: 2;
+}
+
+header {
+	height: 75px;
+	background-color: var(--grey);
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px; 
+}
+
+header h1 {
+	margin: 0;
+	color: var(--primary);
+	font-weight: 600;
+}
+
+.controls {
+	margin: 3rem;
+}
+
+.controls button {
+	all: unset;
+	background-color: var(--primary);
+	color: white;
+	padding: 1rem 4rem;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.controls button:hover i {
+	color: #8EA9B5;
+}
+
+.controls button:first-of-type {
+	margin-right: 3rem;
+}
+
+.controls button i {
+	font-size: 1.5rem;
+	transition: .3s all;
+}
+
+.timer {
+	margin-top: 3rem;
+	font-size: 4rem;
+	color: var(--primary);
+}
+

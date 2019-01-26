@@ -1,11 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3556" height="2002" viewBox="0 0 3556 2002">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3556" height="2004" viewBox="0 0 3556 2004">
   <defs>
     <clipPath id="clip-Web_1920_2">
-      <rect width="3556" height="2002"/>
+      <rect width="3556" height="2004"/>
     </clipPath>
   </defs>
   <g id="Web_1920_2" data-name="Web 1920 – 2" clip-path="url(#clip-Web_1920_2)">
-    <rect width="3556" height="2002" fill="#fbfcfc"/>
-    <path id="Path_5" data-name="Path 5" d="M555.625,1230l-666.75,2004.323H2070.434V1230" transform="translate(1485 -1230)" fill="#2d3b45" stroke="#707070" stroke-width="1"/>
+    <path id="Path_5" data-name="Path 5" d="M931,1230H698.918L-96.5,3233.323H2070.434V1230" transform="translate(1485 -1229)" fill="#2d3b45"/>
+    <line id="Line_1" data-name="Line 1" x1="522" transform="translate(1256.5 0.5)" fill="none" stroke="#707070" stroke-width="1"/>
+    <g id="Rectangle_23" data-name="Rectangle 23" transform="translate(1577 56)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="1" height="56" stroke="none"/>
+      <rect x="0.5" y="0.5" height="55" fill="none"/>
+    </g>
   </g>
 </svg>

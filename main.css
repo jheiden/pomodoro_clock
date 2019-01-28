@@ -9,6 +9,7 @@
 	--primary: #2D3B45;
 	--lightgrey: #FBFCFC;
 	--grey: #E0E0E3;
+	--borderRadius: 25px;
 }
 
 html, body{
@@ -32,6 +33,11 @@ body {
 	width: 1200px;
 }
 
+.placeholder {
+	width: 400px;
+	height: 100%;
+}
+
 .animation-area {
 	position: absolute;
 	top: 0;
@@ -39,19 +45,13 @@ body {
 	flex-direction: row;
 	height: 60px;
 	width: 1200px;
-
-}
-
-.box {
-	margin-top: -60px;
-	background-color: var(--primary);
 }
 
 .container {
 	width: 650px;
 	background-color: white;
 	margin: 0 auto;
-	border-radius: 25px;
+	border-radius: var(--borderRadius);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -66,8 +66,8 @@ header {
 	align-items: center;
 	width: 100%;
 	justify-content: center;
-	border-top-left-radius: 25px;
-	border-top-right-radius: 25px; 
+	border-top-left-radius: var(--borderRadius);
+	border-top-right-radius: var(--borderRadius);
 }
 
 header h1 {
@@ -85,7 +85,7 @@ header h1 {
 	background-color: var(--primary);
 	color: white;
 	padding: 1rem 4rem;
-	border-radius: 25px;
+	border-radius: var(--borderRadius);
 	cursor: pointer;
 }
 

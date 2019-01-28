@@ -28,8 +28,9 @@ const generateRow = (className, boxHeight, boxWidth, boxes) => {
 
 	for (let index = 0; index < boxes; index++) {
 		const div = document.createElement('div');
-		div.classList.add('box');
 		div.style.height = boxHeight + 'px';
+		div.style.marginTop = -boxHeight + 'px';
+		div.style.backgroundColor = "#2D3B45";
 		div.style.width = boxWidth + 'px';
 		div.classList.add(className);
 		area.append(div);
@@ -50,8 +51,7 @@ const animate = () => {
 
 	generateRow(className, boxHeight, boxWidth, boxes);
 
-	const negativeMargin = 60;
-	const animationHeight = containerHeight - (boxHeight * boxIterations) + negativeMargin;
+	const animationHeight = containerHeight - (boxHeight * boxIterations) + boxHeight;
 	const currentClass = '.' + className;
 
 	const elements = Array.from(document.querySelectorAll(currentClass));

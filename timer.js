@@ -16,7 +16,7 @@ class Timer {
      });
 
      this.stopBtn.addEventListener('click', (e) => {
-        this.display.textContent = "test";
+        this.endTime();
      });
   }
 
@@ -50,8 +50,8 @@ class Timer {
 
      countDown() {
         this.testIfStop();
-        this.displayTime(--this.workLength);
-        
+        --this.workLength
+        this.displayTime();
      };
 
      testIfStop() {
@@ -61,6 +61,7 @@ class Timer {
         }
      };
 
+     // works like a pause function should we have a pause btn?
      endTime() {
        clearInterval(this.interval)
 

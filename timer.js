@@ -40,7 +40,7 @@ class Timer {
         let convertedMinutes = Math.floor(this.workLength / 60);
         let convertedSeconds = this.workLength % 60;
         this.display.textContent = `${convertedMinutes}:${convertedSeconds}`
-     }
+     };
 
      // Must use arrow function cause of scope of <this> when used for the setInterval..?
      startCount() {
@@ -49,17 +49,21 @@ class Timer {
       };
 
      countDown() {
-        this.displayTime(--this.workLength);
         this.testIfStop();
-        console.log(this.workLength);
-     }
+        this.displayTime(--this.workLength);
+        
+     };
 
      testIfStop() {
-        if (this.workLength === 20) {
-           clearTimeout(this.interval);
+        if (this.workLength === 0) {
+           this.endTime();
            // call to start Pause => how? would like to reuse the countDown method..
         }
-        
+     };
+
+     endTime() {
+       clearInterval(this.interval)
+
      }
 
 };

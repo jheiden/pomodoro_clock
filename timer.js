@@ -1,3 +1,8 @@
+
+
+// TODO => start break 5 min after first work session 25 min and then back to work again.
+
+
 class Timer {
   // init: function .. ?
   constructor() {
@@ -9,6 +14,8 @@ class Timer {
     this.startBtn = document.querySelector("#js-play");
     this.stopBtn = document.querySelector("#js-stop");
 
+    
+  // TODO => disable button after clicked once.
     this.startBtn.addEventListener("click", e => {
       this.startCount();
     });
@@ -20,7 +27,9 @@ class Timer {
   displayTime() {
     let convertedMinutes = Math.floor(this.workLength / 60);
     let convertedSeconds = this.workLength % 60;
-    this.display.textContent = `${convertedMinutes}:${convertedSeconds}`;
+    const prefix = convertedSeconds > 9 ? "" : 0;
+    this.display.textContent = `${convertedMinutes}:${prefix}${convertedSeconds}`;
+   
   }
 
   // Must use arrow function cause of scope of <this> when used for the setInterval..?
@@ -34,10 +43,10 @@ class Timer {
   countDown() {
     if (this.hasEnded()) {
       this.endTime();
-    }
-
+    } else {
     this.workLength--;
     this.displayTime();
+  }
   }
 
   hasEnded() {

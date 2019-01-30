@@ -4,7 +4,6 @@ class Timer {
 	constructor() {
 		this.workLength = 5;
 		this.breakLength = 3;
-		debugger;
 		// odd number = work , even number = break
 		this.state = 1;
 		// UI
@@ -76,4 +75,5 @@ class Timer {
 	}
 }
 
+// eslint-disable-next-line no-unused-vars
 const stopWatch = new Timer();

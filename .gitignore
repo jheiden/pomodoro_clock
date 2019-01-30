@@ -1,0 +1,8 @@
+﻿# Alle .user og .suo filer
+**/*.user
+**/*.suo
+
+.vs
+
+# node_modules should never be commited
+node_modules

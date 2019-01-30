@@ -1,0 +1,89 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "Files named Quokka... are just playground files with some code snippets i might use <br> (don't think i will so will delete them soon).",
+  "main": "timer.js",
+  "scripts": {
+    "test": "jest --no-cache ./*",
+    "watch": "jest --no-cache --watch ./*",
+    "lint": "eslint .",
+    "lint-test": "eslint . && jest --no-cache ./* "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jheiden/pomodoro_clock.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "package.json"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": [
+            {
+              "node": "current"
+            }
+          ]
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "babel-plugin-transform-builtin-extend",
+        {
+          "globals": [
+            "Error"
+          ]
+        }
+      ],
+      [
+        "transform-regenerator"
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "jasmine"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:jasmine/recommended"
+    ],
+    "env": {
+      "node": true,
+      "es6": true,
+      "browser": true,
+      "jasmine": true,
+      "jest": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "linebreak-style": 0,
+      "indent": [
+        2,
+        "tab"
+      ],
+      "no-tabs": 0
+    }
+  },
+  "author": "jheiden and jonakirke94",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jheiden/pomodoro_clock/issues"
+  },
+  "homepage": "https://github.com/jheiden/pomodoro_clock#readme"
+}

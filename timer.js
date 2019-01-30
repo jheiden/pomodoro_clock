@@ -1,6 +1,8 @@
 // TODO => start break 5 min after first work session 25 min and then back to work again.
 class Timer {
   // init: function .. ?
+
+  // should we declare these variables as CONSTANTS?
   constructor() {
     this.workLength = 5;
     this.breakLength = 3;
@@ -15,6 +17,8 @@ class Timer {
 
     this.startBtn.addEventListener("click", e => {
       this.startCount();
+      this.startBtn.setAttribute('disabled', 'disabled');
+
     });
 
     this.stopBtn.addEventListener("click", e => {
@@ -22,12 +26,6 @@ class Timer {
     });
   }
 
-  displayTime(timeToTick) {
-    let convertedMinutes = Math.floor(timeToTick / 60);
-    let convertedSeconds = timeToTick % 60;
-    const prefix = convertedSeconds > 9 ? "" : 0;
-    this.display.textContent = `${convertedMinutes}:${prefix}${convertedSeconds}`;
-  }
 
   // Must use arrow function cause of scope of <this> when used for the setInterval..?
   startCount() {
@@ -41,7 +39,7 @@ class Timer {
       this.endTime();
       this.incrementState();
       this.resetTimers();
-      this.startCount();
+      this.startCount()
     } else {
       this.checkState()
   
@@ -57,6 +55,13 @@ class Timer {
       this.displayTime(this.breakLength);
     }
   };
+
+  displayTime(timeToTick) {
+    let convertedMinutes = Math.floor(timeToTick / 60);
+    let convertedSeconds = timeToTick % 60;
+    const prefix = convertedSeconds > 9 ? "" : 0;
+    this.display.textContent = `${convertedMinutes}:${prefix}${convertedSeconds}`;
+  }
 
   hasEnded() {
     return !this.workLength;

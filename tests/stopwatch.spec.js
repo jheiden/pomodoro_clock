@@ -9,6 +9,7 @@ describe('Timer', () => {
 	const $31MInMs = 1860000;
 	const $126MInMs = 7560000;
 	const $151MInMs = 9060000;
+	
 
 	beforeEach(() => {
 		stopwatch = new Stopwatch();
@@ -152,6 +153,8 @@ describe('Timer', () => {
 
 			expect(stopwatch.minutes).toEqual(5);
 			expect(stopwatch.minutes).toEqual(0);
-		});
-	});
+		})
+
+	})
 });
+

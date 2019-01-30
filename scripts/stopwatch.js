@@ -1,30 +1,20 @@
-// TODO => start break 5 min after first work session 25 min and then back to work again.
+
+
+const display = document.querySelector(".timer")
+const startBtn = document.querySelector("#js-play")
+const stopBtn = document.querySelector("js-stop")
+
+startBtn.addEventListener('click',() => {
+	stopWatch.start();
+});
+
+
 class Stopwatch {
 	// init: function .. ?
 	constructor() {
 		this.minutes = 25;
 		this.seconds = 0;
 		this.state = 'worktime';
-
-		this.workLength = 5;
-		this.breakLength = 3;
-	
-		// odd number = work , even number = break
-		//this.state = 1;
-		// UI
-		/* 		this.display = document.querySelector('.timer');
-		this.startBtn = document.querySelector('#js-play');
-		this.stopBtn = document.querySelector('#js-stop');
-
-		// TODO => disable button after clicked once.
-
-		this.startBtn.addEventListener('click', () => {
-			this.startCount();
-		});
-
-		this.stopBtn.addEventListener('click', () => {
-			this.stopAndReset();
-		}); */
 	}
 
 	formatTime() {
@@ -36,7 +26,9 @@ class Stopwatch {
 		this.interval = setInterval(() => this.runTimer(), 1000);
 	}
 
+
 	runTimer() {
+		console.log("runTimer");
 		if (this.seconds === 0) {
 			if (this.minutes !== 0) {
 				this.minutes -= 1;
@@ -61,12 +53,7 @@ class Stopwatch {
 		this.display.textContent = `${convertedMinutes}:${prefix}${convertedSeconds}`;
 	}
 
-	// Must use arrow function cause of scope of <this> when used for the setInterval..?
-	startCount() {
-		this.interval = setInterval(() => {
-			this.countDown();
-		}, 1000);
-	}
+
 
 	countDown() {
 		if (this.hasEnded()) {
@@ -107,7 +94,7 @@ class Stopwatch {
 	}
 }
 
-export default Stopwatch;
+// export default Stopwatch;
 
 // eslint-disable-next-line no-unused-vars
-// const stopWatch = new Stopwatch();
+const stopWatch = new Stopwatch();

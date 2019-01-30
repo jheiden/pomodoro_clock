@@ -4,6 +4,7 @@ class Timer {
 	constructor() {
 		this.workLength = 5;
 		this.breakLength = 3;
+		debugger;
 		// odd number = work , even number = break
 		this.state = 1;
 		// UI
@@ -75,4 +76,4 @@ class Timer {
 	}
 }
 
-const timer = new Timer();
+const stopWatch = new Timer();

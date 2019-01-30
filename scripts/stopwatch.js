@@ -2,12 +2,15 @@
 class Stopwatch {
 	// init: function .. ?
 	constructor() {
-		this.workLength = 5;
-		this.breakLength = 3;
 		this.minutes = 25;
 		this.seconds = 0;
+		this.state = 'worktime';
+
+		this.workLength = 5;
+		this.breakLength = 3;
+	
 		// odd number = work , even number = break
-		this.state = 1;
+		//this.state = 1;
 		// UI
 		/* 		this.display = document.querySelector('.timer');
 		this.startBtn = document.querySelector('#js-play');
@@ -28,6 +31,28 @@ class Stopwatch {
 		const prefix = this.seconds > 9 ? '' : 0;
 		return `${this.minutes}:${prefix}${this.seconds}`;
 	}
+
+	start() {
+		this.interval = setInterval(() => this.runTimer(), 1000);
+	}
+
+	runTimer() {
+		if (this.seconds === 0) {
+			if (this.minutes !== 0) {
+				this.minutes -= 1;
+				this.seconds = 59;
+			} else {
+				// 25 min is up
+				// reset interval
+				clearInterval(this.interval);
+				// set new minutes / seconds for break
+				// change state
+			}
+		} else {
+			this.seconds -= 1;
+		}
+	}
+	/* refactoring some code so it aligns with tests */
 
 	displayTime(timeToTick) {
 		const convertedMinutes = Math.floor(timeToTick / 60);

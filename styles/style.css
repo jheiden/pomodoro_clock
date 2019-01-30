@@ -15,7 +15,7 @@ html, body{
 }
 
 body {
-	background-image: url('images/pomodoro-bg.svg');
+	background-image: url('../images/pomodoro-bg.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;

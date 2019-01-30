@@ -1,13 +1,15 @@
 // TODO => start break 5 min after first work session 25 min and then back to work again.
-class Timer {
+class Stopwatch {
 	// init: function .. ?
 	constructor() {
 		this.workLength = 5;
 		this.breakLength = 3;
+		this.minutes = 25;
+		this.seconds = 0;
 		// odd number = work , even number = break
 		this.state = 1;
 		// UI
-		this.display = document.querySelector('.timer');
+		/* 		this.display = document.querySelector('.timer');
 		this.startBtn = document.querySelector('#js-play');
 		this.stopBtn = document.querySelector('#js-stop');
 
@@ -19,7 +21,12 @@ class Timer {
 
 		this.stopBtn.addEventListener('click', () => {
 			this.stopAndReset();
-		});
+		}); */
+	}
+
+	formatTime() {
+		const prefix = this.seconds > 9 ? '' : 0;
+		return `${this.minutes}:${prefix}${this.seconds}`;
 	}
 
 	displayTime(timeToTick) {
@@ -75,5 +82,7 @@ class Timer {
 	}
 }
 
+export default Stopwatch;
+
 // eslint-disable-next-line no-unused-vars
-const stopWatch = new Timer();
+// const stopWatch = new Stopwatch();

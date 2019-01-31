@@ -1,21 +1,33 @@
 /* eslint-disable no-undef */
-class Animation {
-	constructor() {
+class ClockAnimation {
+	constructor(container) {
 		this.boxIterations = 1;
 		this.timer = 0;
-		this.containerHeight = document.querySelector('.animation-wrapper').clientHeight;
+		this.container = document.querySelector(`.${container}`);
+
+		if (!this.container) {
+			throw new Error('Container not found');
+		}
+
+		this.setContainerStyles();
+	}
+
+	setContainerStyles() {
+		this.container.style.position = 'absolute';
+		this.container.style.display = 'flex';
+		this.container.style.flexDirection = 'column';
+		this.container.style.height = '100%';
+		this.container.style.width = '1200px';
 	}
 
 	static destroyAnimations() {
-		const wrapper = document.querySelector('.animation-wrapper');
-		wrapper.innerHTML = null;
+		this.container.innerHTML = null;
 	}
 
-	resetWrapper = () => {
-		const wrapper = document.querySelector('.animation-wrapper');
-		wrapper.style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
+	resetWrapper() {
+		this.container.style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
 		this.boxIterations = 1;
-	};
+	}
 
 	countDown() {
 		this.timer += 1;
@@ -49,11 +61,16 @@ class Animation {
 		}
 	}
 
-	static generateRow(className, boxHeight, boxWidth, boxes) {
-		const wrapper = document.querySelector('.animation-wrapper');
+	generateRow(className, boxHeight, boxWidth, boxes) {
 		const area = document.createElement('div');
-		area.classList.add('animation-area');
-		wrapper.append(area);
+		area.style.position = 'absolute';
+		area.style.top = 0;
+		area.style.display = 'flex';
+		area.style.flexDirection = 'row';
+		area.style.height = '60px';
+		area.style.width = '1200px';
+
+		this.container.append(area);
 		for (let index = 0; index < boxes; index += 1) {
 			const div = document.createElement('div');
 			div.style.height = `${boxHeight}px`;
@@ -68,7 +85,7 @@ class Animation {
 	animate() {
 		const className = `box${this.boxIterations}`;
 
-		const boxHeight = this.containerHeight / (25 * 2);
+		const boxHeight = this.container.clientHeight / (25 * 2);
 
 		const width = window.innerWidth;
 
@@ -78,16 +95,17 @@ class Animation {
 
 		this.generateRow(className, boxHeight, boxWidth, boxes);
 
-		const animationHeight = this.containerHeight - boxHeight * this.boxIterations + boxHeight;
+		const animationHeight = this.container.clientHeight - boxHeight
+		* this.boxIterations + boxHeight;
 		const currentClass = `.${className}`;
 
-		const elements = Array.from(document.querySelectorAll(currentClass));
+		const elements = Array.from(this.container.querySelectorAll(currentClass));
 		elements.sort(() => 0.5 - Math.random());
 
 		TweenMax.staggerTo(
 			elements,
 			60,
-			{ y: animationHeight, ease: this.getRandomAnimation() },
+			{ y: animationHeight, ease: ClockAnimation.getRandomAnimation() },
 			0.5,
 		);
 		this.boxIterations += 1;
@@ -96,7 +114,7 @@ class Animation {
 	stopAnimation() {
 		clearInterval(this.interval);
 		TweenMax.staggerTo(
-			'.animation-wrapper',
+			`.${container}`,
 			0.5,
 			{ y: -2000, ease: Expo.eastOut },
 			0.1,
@@ -113,7 +131,7 @@ class Animation {
 	}
 }
 
-export default Animation;
+export default ClockAnimation;
 
 /* eslint-disable no-undef */
 /* let interval;

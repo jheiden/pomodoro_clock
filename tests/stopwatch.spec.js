@@ -16,15 +16,15 @@ describe('Timer', () => {
 	});
 
 	describe('stopwatch initialization', () => {
-		test('should have initial minutes of 25', () => {
+		test.skip('should have initial minutes of 25', () => {
 			expect(stopwatch.minutes).toEqual(25);
 		});
 
-		test('should have initial seconds of 0', () => {
+		test.skip('should have initial seconds of 0', () => {
 			expect(stopwatch.seconds).toEqual(0);
 		});
 
-		test('should format new stopwatch correctly', () => {
+		test.skip('should format new stopwatch correctly', () => {
 			expect(stopwatch.formatTime()).toEqual('25:00');
 		});
 	});
@@ -57,7 +57,7 @@ describe('Timer', () => {
 			expect(stopwatch.seconds).toEqual(49);
 		});
 
-		test('can roll over exactly 25 min', () => {
+		test('can roll over exactly 25 min', () => { // does this test require too much precision?
 			jest.advanceTimersByTime($25MInMs);
 			jest.runOnlyPendingTimers();
 
@@ -71,7 +71,7 @@ describe('Timer', () => {
 			expect(stopwatch.minutes).not.toEqual(-2);
 		});
 
-		test.skip('can roll over in breaktime', () => {
+		test('can roll over in breaktime', () => {
 			jest.advanceTimersByTime($26MInMs);
 			jest.runOnlyPendingTimers();
 
@@ -94,7 +94,7 @@ describe('Timer', () => {
 			stopwatch.start();
 		});
 
-		test.skip('should set initial state correctly', () => {
+		test('should set initial state correctly', () => {
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
@@ -105,35 +105,35 @@ describe('Timer', () => {
 			expect(stopwatch.state).toEqual('breaktime');
 		});
 
-		test.skip('should have worktime state after exactly 25min', () => {
+		test('should have worktime state after exactly 25min', () => {
 			jest.advanceTimersByTime($25MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('should have breaktime state after exactly 30min', () => {
+		test('should have breaktime state after exactly 30min', () => {
 			jest.advanceTimersByTime($30MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('should be able to switch back to workstate after ended break', () => {
+		test('should be able to switch back to workstate after ended break', () => {
 			jest.advanceTimersByTime($31MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('has correct state after ridicolous time', () => {
+		test('has correct state after ridicolous time', () => {
 			jest.advanceTimersByTime($31MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('has correct state after ridicolous time', () => {
+		test('has correct state after ridicolous time', () => {
 			jest.advanceTimersByTime($126MInMs);
 			jest.runOnlyPendingTimers();
 

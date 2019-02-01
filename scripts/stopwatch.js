@@ -2,8 +2,6 @@ const display = document.querySelector(".timer");
 const startBtn = document.querySelector("#js-play");
 const stopBtn = document.querySelector("js-stop");
 
-
-
 class Stopwatch {
   constructor() {
     this.minutes = 25;
@@ -52,8 +50,6 @@ class Stopwatch {
 // export default Stopwatch;
 // eslint-disable-next-line no-unused-vars
 const stopWatch = new Stopwatch();
-
-
 
 startBtn.addEventListener('click',() => {
 	stopWatch.start();

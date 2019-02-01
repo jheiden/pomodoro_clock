@@ -16,15 +16,15 @@ describe('Timer', () => {
 	});
 
 	describe('stopwatch initialization', () => {
-		test.skip('should have initial minutes of 25', () => {
+		test('should have initial minutes of 25', () => {
 			expect(stopwatch.minutes).toEqual(25);
 		});
 
-		test.skip('should have initial seconds of 0', () => {
+		test('should have initial seconds of 0', () => {
 			expect(stopwatch.seconds).toEqual(0);
 		});
 
-		test.skip('should format new stopwatch correctly', () => {
+		test('should format new stopwatch correctly', () => {
 			expect(stopwatch.formatTime()).toEqual('25:00');
 		});
 	});
@@ -79,7 +79,7 @@ describe('Timer', () => {
 			expect(stopwatch.seconds).toEqual(0);
 		});
 
-		test.skip('can roll over exactly 5 min in breaktime', () => {
+		test('can roll over exactly 5 min in breaktime', () => {
 			jest.advanceTimersByTime($30MInMs);
 			jest.runOnlyPendingTimers();
 
@@ -98,7 +98,7 @@ describe('Timer', () => {
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('should change to break state when time is up', () => {
+		test('should change to break state when time is up', () => {
 			jest.advanceTimersByTime($26MInMs);
 			jest.runOnlyPendingTimers();
 
@@ -113,7 +113,7 @@ describe('Timer', () => {
 		});
 
 		test('should have breaktime state after exactly 30min', () => {
-			jest.advanceTimersByTime($30MInMs);
+			jest.advanceTimersByTime($30MInMs + 1000);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('worktime');
@@ -140,15 +140,15 @@ describe('Timer', () => {
 			expect(stopwatch.state).toEqual('worktime');
 		});
 
-		test.skip('has correct state after ridicolous time 2', () => {
+		test('has correct state after ridicolous time 2', () => {
 			jest.advanceTimersByTime($151MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.state).toEqual('breaktime');
 		});
 
-		test.skip('breaktime state has correct start values', () => {
-			jest.advanceTimersByTime($25MInMs + 1000);
+		test('breaktime state has correct start values', () => {
+			jest.advanceTimersByTime($25MInMs);
 			jest.runOnlyPendingTimers();
 
 			expect(stopwatch.minutes).toEqual(5);

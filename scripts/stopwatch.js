@@ -20,6 +20,7 @@ class Stopwatch {
 
 
 	runTimer() {
+		// display.textContent = this.formatTime();
 		if (this.seconds === 0) {
 			if (this.minutes !== 0) {
 				this.minutes -= 1
@@ -36,15 +37,14 @@ class Stopwatch {
 	}
 
 	setState() {
-		//this.state === "worktime" ? this.state = "breaktime" : this.state ="worktime"
-		if (this.state === "worktime") {
-			this.state = "breaktime";
-		} else {
-			this.state = "worktime"
-		}
+		this.state === "worktime" ? this.state = "breaktime" : this.state = "worktime"
 	}
 
 	setTimers () {
+		this.seconds = 0;
+		
+		this.state === "worktime" ? this.minutes = 25 : this.minutes = 5;
+
 		if (this.state === "worktime") {
 			this.minutes = 25;
 			this.seconds = 0;
@@ -55,44 +55,16 @@ class Stopwatch {
 	}
 
 };
-	export default Stopwatch;
 
-	// runTimer() {
-	// //	display.textContent = this.formatTime();
-	// 	if (this.seconds === 0) {
-	// 		if (this.minutes !== 0) {
-	// 			this.minutes -= 1;
-	// 			this.seconds = 59;
-	// 		} else {
+export default Stopwatch;
 
-	// 			if (this.state === 'worktime') {
-	// 				this.state = 'breaktime';
-	// 				this.minutes = 5;
-	// 				this.seconds = 0;
-
-	// 			} else {
-	// 				this.state = 'worktime';
-	// 				this.minutes = 25;
-	// 				this.seconds = 0;
-	// 			}
-
-	// 			clearInterval(this.interval);
-	// 			this.start();
-	// 			// set new minutes / seconds for break
-	// 			// change state
-	// 		}
-	// 	} else {
-	// 		this.seconds -= 1;
-	// 	}
-	// }
-
-
-
-
-
-// eslint-disable-next-line no-unused-vars
 // const stopWatch = new Stopwatch();
 
 // startBtn.addEventListener('click',() => {
 // 	stopWatch.start();
 // }); 
+
+
+
+
+// eslint-disable-next-line no-unused-vars

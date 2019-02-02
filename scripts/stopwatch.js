@@ -18,7 +18,6 @@ class Stopwatch {
 		this.interval = setInterval(() => this.runTimer(), 1000);
 	}
 
-
 	runTimer() {
 		// display.textContent = this.formatTime();
 		if (this.seconds === 0) {
@@ -42,16 +41,7 @@ class Stopwatch {
 
 	setTimers () {
 		this.seconds = 0;
-		
 		this.state === "worktime" ? this.minutes = 25 : this.minutes = 5;
-
-		if (this.state === "worktime") {
-			this.minutes = 25;
-			this.seconds = 0;
-		} else {
-			this.minutes = 5;
-			this.seconds = 0;
-		}
 	}
 
 };

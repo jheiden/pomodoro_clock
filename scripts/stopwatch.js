@@ -3,10 +3,11 @@ const startBtn = document.querySelector("#js-play");
 const stopBtn = document.querySelector("js-stop");
 
 class Stopwatch {
-	constructor() {
+	constructor(displayClass) {
 		this.minutes = 25;
 		this.seconds = 0;
 		this.state = 'worktime';
+		this.display = document.querySelector(`.${displayClass}`)
 	}
 
 	formatTime() {
@@ -19,7 +20,7 @@ class Stopwatch {
 	}
 
 	runTimer() {
-		// display.textContent = this.formatTime();
+		this.display.textContent = this.formatTime();
 		if (this.seconds === 0) {
 			if (this.minutes !== 0) {
 				this.minutes -= 1
@@ -46,15 +47,12 @@ class Stopwatch {
 
 };
 
-export default Stopwatch;
+//export default Stopwatch;
 
-// const stopWatch = new Stopwatch();
+const stopWatch = new Stopwatch("timer");
 
-// startBtn.addEventListener('click',() => {
-// 	stopWatch.start();
-// }); 
-
-
-
+startBtn.addEventListener('click',() => {
+	stopWatch.start();
+}); 
 
 // eslint-disable-next-line no-unused-vars

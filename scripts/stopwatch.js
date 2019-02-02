@@ -1,12 +1,7 @@
-/* const display = document.querySelector(".timer");
+const display = document.querySelector(".timer");
 const startBtn = document.querySelector("#js-play");
 const stopBtn = document.querySelector("js-stop");
 
-<<<<<<< HEAD
-=======
- */
-
->>>>>>> ebb980ee2fe958f8d7ddb6f63aa263e7c1702fa2
 class Stopwatch {
 	constructor() {
 		this.minutes = 25;
@@ -24,6 +19,7 @@ class Stopwatch {
 	}
 
 	runTimer() {
+	//	display.textContent = this.formatTime();
 		if (this.seconds === 0) {
 			if (this.minutes !== 0) {
 				this.minutes -= 1;
@@ -51,14 +47,10 @@ class Stopwatch {
 }
 
 export default Stopwatch;
+
 // eslint-disable-next-line no-unused-vars
-const stopWatch = new Stopwatch();
+// const stopWatch = new Stopwatch();
 
-<<<<<<< HEAD
-startBtn.addEventListener('click',() => {
-=======
-
-/* startBtn.addEventListener('click',() => {
->>>>>>> ebb980ee2fe958f8d7ddb6f63aa263e7c1702fa2
-	stopWatch.start();
-}); */
+// startBtn.addEventListener('click',() => {
+// 	stopWatch.start();
+// }); 

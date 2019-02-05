@@ -61,29 +61,4 @@ class Stopwatch {
 	}
 }
 
-<<<<<<< HEAD
-	stopAndReset() {
-		clearInterval(this.interval)
-		this.state === "worktime"
-		this.setTimers();
-		this.display.textContent = this.formatTime();
-	}
-
-};
-
-//export default Stopwatch;
-
-const stopWatch = new Stopwatch("timer");
-
-startBtn.addEventListener('click',() => {
-	stopWatch.start();
-}); 
-
-stopBtn.addEventListener('click', () => {
-	stopWatch.stopAndReset();
-})
-
-// eslint-disable-next-line no-unused-vars
-=======
 export default Stopwatch;
->>>>>>> b99e4f05ca8f03b660d9ff469ea04970e1ee246b

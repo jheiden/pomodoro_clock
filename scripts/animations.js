@@ -144,7 +144,7 @@ class ClockAnimation {
 	}
 
 	startAnimation() {
-		this.interval = setInterval(this.countDown(), 1000);
+		this.interval = setInterval(this.countDown.bind(this), 1000);
 		this.animate();
 	}
 }

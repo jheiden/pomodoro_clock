@@ -135,7 +135,7 @@ class ClockAnimation {
 			{ y: -2000, ease: Expo.eastOut },
 			0.1,
 		);
-		setTimeout(function () {
+		setTimeout( () => {
 			this.destroyAnimations();
 			this.resetWrapper();
 			this.boxIterations = 1;

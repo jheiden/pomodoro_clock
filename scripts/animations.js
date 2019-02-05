@@ -131,7 +131,7 @@ class ClockAnimation {
 	}
 }
 
-export default ClockAnimation;
+// export default ClockAnimation;
 
 /* eslint-disable no-undef */
 /* let interval;

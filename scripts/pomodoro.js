@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import ClockAnimation from './animations.js';
-import Stopwatch from './Stopwatch.js';
+import Stopwatch from './stopwatch.js';
 
 class Pomodoro {
 	constructor(root, startIdentifier, stopIdentifier, displayIdentifier) {

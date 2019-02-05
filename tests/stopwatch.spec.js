@@ -9,10 +9,10 @@ describe('Timer', () => {
 	const $31MInMs = 1860000;
 	const $126MInMs = 7560000;
 	const $151MInMs = 9060000;
-	
+
 
 	beforeEach(() => {
-		stopwatch = new Stopwatch();
+		stopwatch = new Stopwatch(true);
 	});
 
 	describe('stopwatch initialization', () => {
@@ -30,7 +30,6 @@ describe('Timer', () => {
 	});
 
 	describe('stopwatch can count down correctly', () => {
-
 		beforeEach(() => {
 			jest.useFakeTimers();
 			stopwatch.start();
@@ -153,8 +152,6 @@ describe('Timer', () => {
 
 			expect(stopwatch.minutes).toEqual(5);
 			expect(stopwatch.minutes).toEqual(0);
-		})
-
-	})
+		});
+	});
 });
-

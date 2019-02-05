@@ -1,8 +1,10 @@
+/* eslint-disable func-names */
 /* eslint-disable no-undef */
 class ClockAnimation {
 	constructor(container) {
 		this.boxIterations = 1;
 		this.timer = 0;
+		this.containerClass = container;
 		this.container = document.querySelector(`.${container}`);
 
 		if (!this.container) {
@@ -20,8 +22,10 @@ class ClockAnimation {
 		this.container.style.width = '1200px';
 	}
 
-	static destroyAnimations() {
-		this.container.innerHTML = null;
+	destroyAnimations() {
+		while (this.container.firstChild) {
+			this.container.removeChild(this.container.firstChild);
+		}
 	}
 
 	resetWrapper() {
@@ -39,7 +43,19 @@ class ClockAnimation {
 
 		if (this.timer === 60 * 25) {
 			clearInterval(this.interval);
+			setTimeout(function () {
+				// sleep 5 minutes while breaktime
+				this.reset();
+			}, 50000);
 		}
+	}
+
+	reset() {
+		this.destroyAnimations();
+		this.resetWrapper();
+		this.boxIterations = 1;
+		this.timer = 0;
+		this.startAnimation();
 	}
 
 	static getRandomAnimation() {
@@ -114,23 +130,28 @@ class ClockAnimation {
 	stopAnimation() {
 		clearInterval(this.interval);
 		TweenMax.staggerTo(
-			`.${container}`,
+			`.${this.containerClass}`,
 			0.5,
 			{ y: -2000, ease: Expo.eastOut },
 			0.1,
 		);
-		setTimeout(() => {
+		setTimeout(function () {
 			this.destroyAnimations();
 			this.resetWrapper();
+			this.boxIterations = 1;
+			this.timer = 0;
 		}, 500);
 	}
 
 	startAnimation() {
-		this.interval = setInterval(this.countDown, 1000);
+		this.interval = setInterval(function () {
+			this.countDown();
+		}, 1000);
 		this.animate();
 	}
 }
 
+<<<<<<< HEAD
 // export default ClockAnimation;
 
 /* eslint-disable no-undef */
@@ -248,3 +269,6 @@ document.getElementById('js-stop').addEventListener('click', () => {
 	}, 500);
 });
  */
+=======
+export default ClockAnimation;
+>>>>>>> b99e4f05ca8f03b660d9ff469ea04970e1ee246b

@@ -135,7 +135,7 @@ class ClockAnimation {
 			{ y: -2000, ease: Expo.eastOut },
 			0.1,
 		);
-		setTimeout(function () {
+		setTimeout( () => {
 			this.destroyAnimations();
 			this.resetWrapper();
 			this.boxIterations = 1;
@@ -144,9 +144,7 @@ class ClockAnimation {
 	}
 
 	startAnimation() {
-		this.interval = setInterval(function () {
-			this.countDown();
-		}, 1000);
+		this.interval = setInterval(this.countDown.bind(this), 1000);
 		this.animate();
 	}
 }
